@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  # mysql:
+  #   image: mysql:5.7
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: jwdb 
+  #     MYSQL_USER: joget 
+  #     MYSQL_PASSWORD: joget 
+  #     MYSQL_DATABASE: jwdb 
+  #   ports:
+  #     - "3320:3306"
+  #   # volumes:
+  #   #   - joget_mysql_data:/var/lib/mysql
+
+  joget:
+    image: jogetworkflow/joget-community
+    # environment:
+    #   MYSQL_HOST: mysql 
+    #   MYSQL_PORT: 3306 
+    #   MYSQL_USER: joget 
+    #   MYSQL_PASSWORD: joget 
+    #   MYSQL_DATABASE: jwdb 
+
+    volumes:
+      - joget_mysql_data:/var/lib/mysql
+
+    ports:
+      - "18080:8080"
+ 
+volumes:
+  joget_mysql_data:
